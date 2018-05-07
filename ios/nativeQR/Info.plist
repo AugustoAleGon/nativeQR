@@ -52,5 +52,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow camera for scanning bar code</string>
 </dict>
 </plist>
