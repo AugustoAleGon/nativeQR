@@ -4,16 +4,16 @@ import {
   View
 } from 'react-native'
 import { Provider } from 'react-redux'
-import DebugConfig from '../Config/DebugConfig'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import {persistStore} from 'redux-persist'
-import createStore from '../Redux'
 
+// Local Libraries
+import DebugConfig from '../Config/DebugConfig'
+import createStore from '../Redux'
+import RootContainer from './RootContainer'
 // Create our store
 const store = createStore()
 const persistor = persistStore(store)
-// Local Libraries
-import RootContainer from './RootContainer'
 
 type Props = {}
 class App extends Component<Props> {
