@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 import {
-  View, Text
+  View
 } from 'react-native'
+import {connect} from 'react-redux'
+
+import ReduxNavigation from '../Navigation/ReduxNavigation'
 
 class RootContainer extends Component {
   render () {
@@ -9,12 +12,10 @@ class RootContainer extends Component {
       <View style={{
         flex: 1
       }}>
-        <Text>
-                    Hello World Container
-        </Text>
+        <ReduxNavigation />
       </View>
     )
   }
 }
 
-export default RootContainer
+export default connect(null, null)(RootContainer)
