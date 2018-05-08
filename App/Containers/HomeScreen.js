@@ -21,11 +21,11 @@ class HomeScreen extends Component {
   }
 
   componentDidMount () {
-    console.log('This was mounted!')
+    this.props.resetCode()
   }
 
   _onSuccessReadingCode (e) {
-    console.log('This is the event: ', e)
+    this.props.readbarcode(e)
   }
 
   render () {
@@ -50,8 +50,8 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    readbarcode: bindActionCreators(barcodeActions.barcodeResult),
-    resetCode: bindActionCreators(barcodeActions.resetBarcode)
+    readbarcode: bindActionCreators(barcodeActions.readBarCode, dispatch),
+    resetCode: bindActionCreators(barcodeActions.resetBarcode, dispatch)
   }
 }
 
