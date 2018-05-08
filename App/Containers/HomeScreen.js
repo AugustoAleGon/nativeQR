@@ -4,6 +4,11 @@ import {
   Text
 } from 'react-native'
 import QRCodeScanner from 'react-native-qrcode-scanner'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+
+// Actions
+import barcodeActions from '../Redux/Reducers/barcode'
 
 // Styles
 import {ApplicationStyles} from '../Themes'
@@ -13,6 +18,10 @@ class HomeScreen extends Component {
   constructor (props) {
     super(props)
     this._onSuccessReadingCode = this._onSuccessReadingCode.bind(this)
+  }
+
+  componentDidMount () {
+    console.log('This was mounted!')
   }
 
   _onSuccessReadingCode (e) {
@@ -33,4 +42,17 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen
+const mapStateToProps = (state, props) => {
+  return {
+    barcode: state.barcode.barcode
+  }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    readbarcode: bindActionCreators(barcodeActions.barcodeResult),
+    resetCode: bindActionCreators(barcodeActions.resetBarcode)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
