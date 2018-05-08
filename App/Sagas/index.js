@@ -20,6 +20,6 @@ import {
 export default function * root () {
   yield [
     // some sagas only receive an action
-    // takeLatest(barcodeTypes.READ_BAR_CODE, readBarCode)
+    takeLatest(barcodeTypes.READ_BAR_CODE, readBarCode)
   ]
 }
