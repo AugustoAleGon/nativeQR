@@ -7,9 +7,10 @@ import QRCodeScanner from 'react-native-qrcode-scanner'
 
 // Styles
 import {ApplicationStyles} from '../Themes'
+import styles from './Styles/HomeScreenStyles'
 
 class HomeScreen extends Component {
-  constructor(props){
+  constructor (props) {
     super(props)
     this._onSuccessReadingCode = this._onSuccessReadingCode.bind(this)
   }
@@ -21,12 +22,12 @@ class HomeScreen extends Component {
   render () {
     return (
       <View style={ApplicationStyles.screen.mainContainer}>
-        <View style={ApplicationStyles.screen.header}>
-          <Text>Scan your profile</Text>
+        <View style={styles.headerHomeScreen}>
+          <Text>Scan bar code</Text>
         </View>
         <QRCodeScanner
-          onRead={(e) => {this._onSuccessReadingCode(e)}}
-          />
+          onRead={(e) => { this._onSuccessReadingCode(e) }}
+        />
       </View>
     )
   }
